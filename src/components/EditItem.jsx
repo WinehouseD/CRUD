@@ -51,6 +51,8 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
           id="taskName"
           type="text"
           fullWidth
+          multiline
+          rows={5}
           value={tasksTitle}
           onChange={(e) => {
             setTasksTitle(
@@ -62,11 +64,21 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
           helperText={error}
         />
       </DialogContent>
-      <DialogActions>
-        <Button onClick={editTask} variant="contained" aria-label="Save">
+      <DialogActions sx={{ pb: "1rem" }}>
+        <Button
+          onClick={editTask}
+          variant="contained"
+          aria-label="Save"
+          sx={{ width: "6rem" }}
+        >
           Save
         </Button>
-        <Button onClick={handleClose} variant="outlined" aria-label="Cancel">
+        <Button
+          onClick={handleClose}
+          variant="outlined"
+          aria-label="Cancel"
+          sx={{ width: "6rem" }}
+        >
           Cancel
         </Button>
       </DialogActions>

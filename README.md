@@ -1,8 +1,17 @@
-# React + Vite
+# TODO APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Credentials
 
-Currently, two official plugins are available:
+login: tinytmp+xzi4k@gmail.com · password: testUser_2024
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview
+
+![image](https://github.com/user-attachments/assets/9cf000e0-e949-4dc3-a949-6b3bf6bd3b34)
+
+## Live Link
+
+https://crud-todo-six.vercel.app/
+
+## Tech Stack
+
+React.js · JavaScript · MaterialUI · React Router v6 · UUID · Kinde · Jest · Vercel

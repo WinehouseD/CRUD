@@ -15,6 +15,8 @@ const LogoutButton = () => {
           textAlign: "right",
           right: "1rem",
           position: "fixed",
+          fontSize: "1rem",
+          top: "0.8rem",
         }}
         onClick={() => logout()}
         type="button"

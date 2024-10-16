@@ -71,13 +71,13 @@ const ItemsList = () => {
   return (
     <Container maxWidth="lg">
       <Typography
-        gutterBottom
         sx={{
           display: "flex",
           justifyContent: "center",
           color: "var(--primary-color)",
           fontSize: "2.7rem",
           alignItems: "center",
+          marginTop: "5rem",
         }}
       >
         Welcome back, {user?.given_name || "Friend"}!

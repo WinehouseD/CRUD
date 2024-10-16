@@ -21,8 +21,8 @@ const Item = ({
 }) => {
   return (
     <Box>
-      <ListItem sx={{ pr: 0 }}>
-        <ListItemIcon sx={{ minWidth: "0" }}>
+      <ListItem sx={{ display: "flex", alignItems: "center", pr: 0 }}>
+        <ListItemIcon sx={{ minWidth: "0", mr: 2 }}>
           <Checkbox
             edge="start"
             checked={status}
@@ -31,28 +31,24 @@ const Item = ({
           />
         </ListItemIcon>
         <ListItemText
-          aria-multiline
           primary={title}
           sx={{
             textDecoration: status ? "line-through" : "none",
+            flex: 1,
           }}
         />
-        <ListItem
-          secondaryAction={
-            <>
-              <IconButton onClick={onEditTask} edge="end" aria-label="edit">
-                <EditIcon />
-              </IconButton>
-              <IconButton
-                onClick={() => onRemoveTask(id)}
-                edge="end"
-                aria-label="delete"
-              >
-                <DeleteIcon />
-              </IconButton>
-            </>
-          }
-        ></ListItem>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton onClick={onEditTask} edge="end" aria-label="edit">
+            <EditIcon sx={{ color: "var(--primary-color)" }} />
+          </IconButton>
+          <IconButton
+            onClick={() => onRemoveTask(id)}
+            edge="end"
+            aria-label="delete"
+          >
+            <DeleteIcon sx={{ color: "red" }} />
+          </IconButton>
+        </Box>
       </ListItem>
       <Divider />
     </Box>

@@ -40,7 +40,7 @@ const AddItem = ({ onAddTask }) => {
       />
       <Box display="flex" justifyContent="center" mt={1}>
         <Button
-          size="large"
+          size="middle"
           type="submit"
           variant="contained"
           sx={{ backgroundColor: "var(--primary-color)" }}
