@@ -113,7 +113,7 @@ const ItemsList = () => {
           justifyContent="center"
           height="50vh"
         >
-          <Typography variant="h3">
+          <Typography sx={{ fontSize: "1rem" }}>
             Unfortunately, there are no tasks available. Add a new task to get
             started!
           </Typography>
