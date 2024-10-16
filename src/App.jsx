@@ -30,12 +30,6 @@ const App = () => {
       <Suspense fallback={<CircularProgress size={40} />}>
         <Routes>
           <Route
-            path="/"
-            element={
-              isAuthenticated ? <Navigate to="/list" replace /> : <SignIn />
-            }
-          />
-          <Route
             path="/list"
             element={
               <ProtectedRoute
