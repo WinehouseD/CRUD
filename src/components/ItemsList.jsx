@@ -109,28 +109,14 @@ const ItemsList = () => {
       ) : (
         <Box
           display="flex"
-          flexDirection="column"
           alignItems="center"
           justifyContent="center"
-          height="100vh"
+          height="50vh"
         >
-          <Typography variant="body4" pb={2} pt={1}>
+          <Typography variant="h3">
             Unfortunately, there are no tasks available. Add a new task to get
             started!
           </Typography>
-          <Button
-            variant="contained"
-            sx={{ backgroundColor: "var(--primary-color)" }}
-            aria-label="Add Task"
-          >
-            <Link
-              to="/add"
-              replace
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Add Task
-            </Link>
-          </Button>
         </Box>
       )}
     </Container>
