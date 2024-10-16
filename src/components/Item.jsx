@@ -6,6 +6,7 @@ import {
   Checkbox,
   Divider,
   Box,
+  ListItemIcon,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -20,20 +21,25 @@ const Item = ({
 }) => {
   return (
     <Box>
-      <ListItem>
+      <ListItem sx={{ pr: 0 }}>
+        <ListItemIcon sx={{ minWidth: "0" }}>
+          <Checkbox
+            edge="start"
+            checked={status}
+            onChange={() => onUpdateStatus(id)}
+            aria-label="toggle status"
+          />
+        </ListItemIcon>
         <ListItemText
+          aria-multiline
           primary={title}
-          sx={{ textDecoration: status ? "line-through" : "none" }}
+          sx={{
+            textDecoration: status ? "line-through" : "none",
+          }}
         />
         <ListItem
           secondaryAction={
             <>
-              <Checkbox
-                edge="end"
-                checked={status}
-                onChange={() => onUpdateStatus(id)}
-                aria-label="toggle status"
-              />
               <IconButton onClick={onEditTask} edge="end" aria-label="edit">
                 <EditIcon />
               </IconButton>

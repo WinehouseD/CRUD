@@ -19,7 +19,7 @@ const AddItem = ({ onAddTask }) => {
   };
 
   return (
-    <Box>
+    <Box component="form" onSubmit={addTask}>
       <TextField
         type="text"
         variant="outlined"
@@ -38,16 +38,17 @@ const AddItem = ({ onAddTask }) => {
         error={!!error}
         helperText={error}
       />
-      <Button
-        type="button"
-        variant="contained"
-        sx={{ backgroundColor: "var(--primary-color)" }}
-        style={{ marginTop: "0.6rem" }}
-        onClick={addTask}
-        aria-label="Add Task"
-      >
-        Add Task
-      </Button>
+      <Box display="flex" justifyContent="center" mt={1}>
+        <Button
+          size="large"
+          type="submit"
+          variant="contained"
+          sx={{ backgroundColor: "var(--primary-color)" }}
+          aria-label="Add Task"
+        >
+          Add Task
+        </Button>
+      </Box>
     </Box>
   );
 };

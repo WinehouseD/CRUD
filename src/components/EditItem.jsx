@@ -40,6 +40,7 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
       open={open}
       onClose={handleClose}
       PaperProps={{ style: { borderRadius: 10 } }}
+      fullWidth
     >
       <DialogTitle>Edit Task</DialogTitle>
       <DialogContent>
@@ -62,11 +63,11 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} aria-label="Cancel">
-          Cancel
-        </Button>
-        <Button onClick={editTask} color="primary" aria-label="Save">
+        <Button onClick={editTask} variant="contained" aria-label="Save">
           Save
+        </Button>
+        <Button onClick={handleClose} variant="outlined" aria-label="Cancel">
+          Cancel
         </Button>
       </DialogActions>
     </Dialog>

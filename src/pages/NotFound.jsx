@@ -11,9 +11,9 @@ const NotFound = () => {
       height="100vh"
     >
       <Typography variant="h3">Page not found :(</Typography>
-      <p className="pb-2">
+      <Typography variant="body6" pb={2} pt={1}>
         Unfortunately, the page that you're looking for does not exist.
-      </p>
+      </Typography>
       <Button
         variant="contained"
         sx={{ backgroundColor: "var(--primary-color)" }}

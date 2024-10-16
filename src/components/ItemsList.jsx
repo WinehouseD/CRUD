@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Item from "./Item";
 import AddItem from "./AddItem";
 import EditItem from "./EditItem";
-import {
-  Box,
-  Container,
-  Paper,
-  Typography,
-  List,
-  ListItem,
-} from "@mui/material";
+import { Container, Typography, List } from "@mui/material";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const ItemsList = () => {
@@ -26,45 +19,48 @@ const ItemsList = () => {
     setLoading(false);
   }, []);
 
-  const addTask = (title) => {
+  const addTask = useCallback((title) => {
     setTasks((prevTasks) => [
-      ...prevTasks,
       {
         id: uuidv4(),
         title,
         status: false,
       },
+      ...prevTasks,
     ]);
-  };
+  }, []);
 
-  const updateStatus = (id) => {
+  const updateStatus = useCallback((id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === id ? { ...task, status: !task.status } : task
       )
     );
-  };
+  }, []);
 
-  const removeTask = (id) => {
+  const removeTask = useCallback((id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-  };
+  }, []);
 
-  const handleEditTask = (id) => {
+  const handleEditTask = useCallback((id) => {
     setEditTaskId(id);
     setIsEditModalOpen(true);
-  };
+  }, []);
 
-  const handleCloseEditModal = () => {
+  const handleCloseEditModal = useCallback(() => {
     setIsEditModalOpen(false);
     setEditTaskId(null);
-  };
+  }, []);
 
-  const editTask = (id, title) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) => (task.id === id ? { ...task, title } : task))
-    );
-    handleCloseEditModal();
-  };
+  const editTask = useCallback(
+    (id, title) => {
+      setTasks((prevTasks) =>
+        prevTasks.map((task) => (task.id === id ? { ...task, title } : task))
+      );
+      handleCloseEditModal();
+    },
+    [handleCloseEditModal]
+  );
 
   useEffect(() => {
     if (!loading) {
@@ -74,8 +70,17 @@ const ItemsList = () => {
 
   return (
     <Container maxWidth="lg">
-      <Typography variant="h3" gutterBottom>
-        Welcome back, {user?.given_name || "Friend"}
+      <Typography
+        gutterBottom
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          color: "var(--primary-color)",
+          fontSize: "2.7rem",
+          alignItems: "center",
+        }}
+      >
+        Welcome back, {user?.given_name || "Friend"}!
       </Typography>
       {editTaskId !== null && (
         <EditItem
