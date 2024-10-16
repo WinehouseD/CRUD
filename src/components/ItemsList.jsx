@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import Item from "./Item";
 import AddItem from "./AddItem";
 import EditItem from "./EditItem";
-import { Container, Typography, List } from "@mui/material";
+import { Container, Typography, List, Box, Button } from "@mui/material";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { Link } from "react-router-dom";
 
 const ItemsList = () => {
   const { user } = useKindeAuth();
@@ -91,19 +92,47 @@ const ItemsList = () => {
         />
       )}
       <AddItem onAddTask={addTask} />
-      <List>
-        {tasks.map((task) => (
-          <Item
-            key={task.id}
-            id={task.id}
-            title={task.title}
-            status={task.status}
-            onUpdateStatus={updateStatus}
-            onRemoveTask={removeTask}
-            onEditTask={() => handleEditTask(task.id)}
-          />
-        ))}
-      </List>
+      {tasks.length > 0 ? (
+        <List>
+          {tasks.map((task) => (
+            <Item
+              key={task.id}
+              id={task.id}
+              title={task.title}
+              status={task.status}
+              onUpdateStatus={updateStatus}
+              onRemoveTask={removeTask}
+              onEditTask={() => handleEditTask(task.id)}
+            />
+          ))}
+        </List>
+      ) : (
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          height="100vh"
+        >
+          <Typography variant="body4" pb={2} pt={1}>
+            Unfortunately, there are no tasks available. Add a new task to get
+            started!
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: "var(--primary-color)" }}
+            aria-label="Add Task"
+          >
+            <Link
+              to="/add"
+              replace
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Add Task
+            </Link>
+          </Button>
+        </Box>
+      )}
     </Container>
   );
 };
