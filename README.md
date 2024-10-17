@@ -6,7 +6,7 @@ login: tinytmp+xzi4k@gmail.com · password: testUser_2024
 
 ## Preview
 
-![image](https://github.com/user-attachments/assets/9cf000e0-e949-4dc3-a949-6b3bf6bd3b34)
+https://ibb.co/88ZQB4r
 
 ## Live Link
 
