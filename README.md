@@ -6,7 +6,7 @@ login: tinytmp+xzi4k@gmail.com · password: testUser_2024
 
 ## Preview
 
-https://ibb.co/88ZQB4r
+https://ibb.co/4mrqsgY
 
 ## Live Link
 

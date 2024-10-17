@@ -1,0 +1,16 @@
+{
+  "name": "TODO",
+  "short_name": "TODO",
+  "icons": [
+    {
+      "src": "crud.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffff",
+  "theme_color": "#800080",
+  "orientation": "portrait"
+}

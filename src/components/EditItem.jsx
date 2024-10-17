@@ -49,6 +49,16 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
           onChange={handleChange}
           error={!!error}
           helperText={error}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: "var(--primary-color)",
+              },
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "var(--primary-color)",
+            },
+          }}
         />
       </DialogContent>
       <DialogActions sx={{ pb: "1rem" }}>
