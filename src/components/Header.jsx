@@ -11,7 +11,7 @@ const Header = () => {
           top: 0,
           left: 0,
           width: "100%",
-          backgroundColor: "#3498db",
+          backgroundColor: "var(--primary-color)",
           color: "#fff",
           padding: "1.25rem",
           textAlign: "left",

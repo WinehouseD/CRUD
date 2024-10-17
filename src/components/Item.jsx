@@ -28,13 +28,19 @@ const Item = ({
             checked={status}
             onChange={() => onUpdateStatus(id)}
             aria-label="toggle status"
+            sx={{
+              color: "var(--primary-color)",
+              "&.Mui-checked": {
+                color: "var(--primary-color)",
+              },
+            }}
           />
         </ListItemIcon>
         <ListItemText
           primary={title}
           sx={{
             textDecoration: status ? "line-through" : "none",
-            flex: 1,
+            wordBreak: "break-word",
           }}
         />
         <Box sx={{ display: "flex", alignItems: "center" }}>

@@ -20,7 +20,7 @@ function SignIn() {
       height="100vh"
     >
       {isLoading ? (
-        <CircularProgress size={40} />
+        <CircularProgress size={40} color="neutral" />
       ) : (
         !isAuthenticated && (
           <Box textAlign="center">
@@ -34,7 +34,7 @@ function SignIn() {
               </Typography>
               <Button
                 variant="contained"
-                sx={{ backgroundColor: "var(--primary-color)" }}
+                sx={{ backgroundColor: "var(--primary-color)", height: 40 }}
                 onClick={login}
                 type="button"
                 aria-label="Log In"
@@ -43,6 +43,11 @@ function SignIn() {
               </Button>
               <Button
                 variant="outlined"
+                sx={{
+                  height: 40,
+                  borderColor: "var(--primary-color)",
+                  color: "var(--primary-color)",
+                }}
                 color="primary"
                 onClick={register}
                 type="button"

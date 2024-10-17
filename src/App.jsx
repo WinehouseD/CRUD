@@ -27,7 +27,7 @@ const App = () => {
     <Router>
       <Header />
       {isAuthenticated && <LogoutButton />}
-      <Suspense fallback={<CircularProgress size={40} />}>
+      <Suspense fallback={<CircularProgress color="neutral" size={40} />}>
         <Routes>
           <Route
             path="/"

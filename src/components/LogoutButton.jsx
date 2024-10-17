@@ -8,7 +8,6 @@ const LogoutButton = () => {
   return (
     <>
       <Button
-        variant="outlined"
         sx={{
           zIndex: 1000,
           color: "white",
@@ -16,7 +15,7 @@ const LogoutButton = () => {
           right: "1rem",
           position: "fixed",
           fontSize: "1rem",
-          top: "0.8rem",
+          top: "0.6rem",
         }}
         onClick={() => logout()}
         type="button"

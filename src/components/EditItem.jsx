@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Dialog,
@@ -8,31 +8,23 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { titleValidation } from "../utils/validation";
+import useTaskForm from "../hooks/useTaskForm";
 
 const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
-  const [tasksTitle, setTasksTitle] = useState("");
-  const [error, setError] = useState("");
+  const [initialTitle, setInitialTitle] = useState("");
 
   useEffect(() => {
     if (taskToEdit) {
-      setTasksTitle(taskToEdit.title);
-      setError("");
+      setInitialTitle(taskToEdit.title);
     }
   }, [taskToEdit]);
 
-  const editTask = useCallback(
-    (e) => {
-      e.preventDefault();
-      const validationError = titleValidation(tasksTitle);
-      if (validationError) {
-        setError(validationError);
-        return;
-      }
-      onEditTask(taskToEdit.id, tasksTitle);
+  const { tasksTitle, error, handleChange, handleSubmit } = useTaskForm(
+    initialTitle,
+    (title) => {
+      onEditTask(taskToEdit.id, title);
       handleClose();
-    },
-    [tasksTitle, taskToEdit, onEditTask, handleClose]
+    }
   );
 
   return (
@@ -54,22 +46,17 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
           multiline
           rows={5}
           value={tasksTitle}
-          onChange={(e) => {
-            setTasksTitle(
-              e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
-            );
-            setError("");
-          }}
+          onChange={handleChange}
           error={!!error}
           helperText={error}
         />
       </DialogContent>
       <DialogActions sx={{ pb: "1rem" }}>
         <Button
-          onClick={editTask}
+          onClick={handleSubmit}
           variant="contained"
           aria-label="Save"
-          sx={{ width: "6rem" }}
+          sx={{ width: "6rem", backgroundColor: "var(--primary-color)" }}
         >
           Save
         </Button>
@@ -77,7 +64,11 @@ const EditItem = ({ taskToEdit, onEditTask, open, handleClose }) => {
           onClick={handleClose}
           variant="outlined"
           aria-label="Cancel"
-          sx={{ width: "6rem" }}
+          sx={{
+            width: "6rem",
+            borderColor: "var(--primary-color)",
+            color: "var(--primary-color)",
+          }}
         >
           Cancel
         </Button>

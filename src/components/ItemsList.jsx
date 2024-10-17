@@ -3,9 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import Item from "./Item";
 import AddItem from "./AddItem";
 import EditItem from "./EditItem";
-import { Container, Typography, List, Box, Button } from "@mui/material";
+import { Container, Typography, List, Box } from "@mui/material";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { Link } from "react-router-dom";
 
 const ItemsList = () => {
   const { user } = useKindeAuth();
@@ -76,9 +75,9 @@ const ItemsList = () => {
           display: "flex",
           justifyContent: "center",
           color: "var(--primary-color)",
-          fontSize: "2.7rem",
+          fontSize: { xs: "2rem", sm: "2.7rem" },
           alignItems: "center",
-          marginTop: "5rem",
+          marginTop: "6rem",
         }}
       >
         Welcome back, {user?.given_name || "Friend"}!
@@ -111,7 +110,7 @@ const ItemsList = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          height="50vh"
+          height="30vh"
         >
           <Typography sx={{ fontSize: "1rem" }}>
             Unfortunately, there are no tasks available. Add a new task to get
